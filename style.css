@@ -1,1 +1,267 @@
+ <style>
+    /* ----------------------------------------------------
+       1. Base / Reset & Font Styles
+       ---------------------------------------------------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    body {
+      background-color: #f5f5f5;
+      color: #222;
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      padding: 16px;
+    }
+
+    /* ----------------------------------------------------
+       2. Common Layout Container (Step 6)
+       ---------------------------------------------------- */
+    main, .top, .hero, footer {
+      max-width: 1100px;
+      margin: 0 auto 24px;
+    }
+
+    /* ----------------------------------------------------
+       3. Header & Navigation Styles (Step 3 & 7)
+       ---------------------------------------------------- */
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    }
+
+    .top h1 {
+      font-size: 1.5rem;
+    }
+
+    /* Mobile First Nav (Vertical) */
+    nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      background-color: #333;
+      padding: 6px 12px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    /* ----------------------------------------------------
+       4. Hero Section (Step 5)
+       ---------------------------------------------------- */
+    .hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url("https://image.tmdb.org/t/p/w1280/8Y43POKjjKDGI9A79uO1R1Lp3bd.jpg");
+      background-size: cover;
+      background-position: center;
+      min-height: 40vh;
+      padding: 24px;
+      box-sizing: border-box;
+      color: #fff;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* ----------------------------------------------------
+       5. Board Grid Layout & Cards (Step 4)
+       ---------------------------------------------------- */
+    .board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .card {
+      position: relative;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .poster {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #ffca28;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .info {
+      padding: 12px;
+    }
+
+    .info h2 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+      color: #111;
+    }
+
+    .info .year {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .info .overview {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    /* ----------------------------------------------------
+       6. About Section & Footer
+       ---------------------------------------------------- */
+    #about {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    #about h2 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    #about p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      font-size: 0.85rem;
+      color: #666;
+      border-top: 1px solid #ddd;
+      padding-top: 16px;
+    }
+
+    footer p {
+      margin-bottom: 4px;
+    }
+
+    footer a {
+      color: #666;
+    }
+
+    /* ----------------------------------------------------
+       7. Responsive Media Queries (Step 7 & 8)
+       ---------------------------------------------------- */
+    /* Breakpoint 1: 600px - Horizontal Navigation Menu */
+    @media (min-width: 600px) {
+      nav ul {
+        flex-direction: row;
+        gap: 20px;
+      }
+      nav a {
+        background-color: transparent;
+        color: #222;
+        padding: 0;
+      }
+      nav a:hover {
+        background-color: transparent;
+        text-decoration: underline;
+      }
+    }
+
+    /* Breakpoint 2: 1024px - Bigger Hero Section */
+    @media (min-width: 1024px) {
+      .hero {
+        min-height: 60vh;
+      }
+      .hero h2 {
+        font-size: 3rem;
+      }
+    }
+
+    /* ----------------------------------------------------
+       8. Bonus Features (Dark Mode & Keyframe Animations)
+       ---------------------------------------------------- */
+    /* Bonus: Card Entrance Animation */
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    .card {
+      animation: rise 0.6s backwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+
+    /* Bonus: System Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #eee;
+      }
+      .card, #about {
+        background-color: #1f2429;
+        color: #eee;
+      }
+      .info h2 {
+        color: #fff;
+      }
+      .info .overview, #about p, footer, footer a {
+        color: #bbb;
+      }
+      @media (min-width: 600px) {
+        nav a {
+          color: #eee;
+        }
+      }
+    }
+  </style>
